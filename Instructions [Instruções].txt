@@ -1,0 +1,15 @@
+Olá!!
+
+Estou extremamente feliz por partilhar esse projecto com você.
+Bem, rodar este projecto é extremamente fácil, o que você precisa entender estará listado aqui em baixo.
+
+São basicamente 3 pastas principais, as quais são: 
+
+- Database (Contém o Script da nossa base de dados), 
+- API (Contém o projecto de APIs para alimentar o FrontEnd)
+- Views (Contém todo o FrontEnd e a integração com as APIs)
+
+1. Corra o Script da Base de dados (Sql Server);
+2. Faça a configuração do projecto de APIs, para apontar para a autenticação da sua Base de Bados;
+3. Corra o projecto de APIs e faça testes com o Postman ou outra ferramenta;
+
