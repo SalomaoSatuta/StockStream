@@ -13,3 +13,19 @@ São basicamente 3 pastas principais, as quais são:
 2. Faça a configuração do projecto de APIs, para apontar para a autenticação da sua Base de Bados;
 3. Corra o projecto de APIs e faça testes com o Postman ou outra ferramenta;
 
+=================================================================================================================
+
+Hello!!
+
+I am extremely happy to share this project with you.
+Well, running this project is extremely easy, what you need to understand will be listed below.
+
+There are basically 3 main folders, which are:
+
+- Database (Contains our database script),
+- API (Contains the API project to feed the FrontEnd)
+- Views (Contains the entire FrontEnd and integration with APIs)
+
+1. Run the Database Script (Sql Server);
+2. Configure the API project, to point to the authentication of your Bados Base;
+3. Run the API project and test it with Postman or another tool;
