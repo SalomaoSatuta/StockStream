@@ -1,3 +1,20 @@
+create table EstadoLogin(
+	Id int identity(1,1) primary key,
+	Designacao varchar(200) not null
+)
+
+INSERT INTO EstadoLogin (Designacao)
+VALUES
+    ('Ativo'),
+    ('Inativo'),
+    ('Bloqueado'),
+    ('Desativado'),
+    ('Em espera de confirmação'),
+    ('Expirado'),
+    ('Pendente'),
+    ('Em recuperação de senha'),
+    ('Autenticação em duas etapas');
+
 create Table Perfil(
 	Id int identity(1,1) primary key,
 	Designacao varchar(35) not null
@@ -11,7 +28,8 @@ create table Usuario(
 	Senha varchar(32) not null,
 	Token varchar(16),
 	DataCriacao varchar(20) not null,
-	PerfilID int foreign key references Perfil(Id)
+	PerfilID int foreign key references Perfil(Id),
+	EstadoLoginID int foreign key references EstadoLogin(Id)
 )
 
 create Table CondicaoPagamento(
@@ -452,10 +470,6 @@ create table Relativo(
 	DataCriacao varchar(20) not null
 )
 
-Create table EstadoLogin(
-	Id int identity(1,1) primary key,
-	Designacao varchar(200) not null
-)
 
 create table Funcionario(
 	Id int identity(1,1) primary key,
