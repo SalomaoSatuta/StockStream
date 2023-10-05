@@ -151,3 +151,4 @@ C:\Treinamento\nextjs13\consumables\api\StockStream\StockStream\obj\Debug\netcor
 C:\Treinamento\nextjs13\consumables\api\StockStream\StockStream\obj\Debug\netcoreapp3.1\StockStream.dll
 C:\Treinamento\nextjs13\consumables\api\StockStream\StockStream\obj\Debug\netcoreapp3.1\StockStream.pdb
 C:\Treinamento\nextjs13\consumables\api\StockStream\StockStream\obj\Debug\netcoreapp3.1\StockStream.genruntimeconfig.cache
+C:\Users\cgjan\OneDrive\Documentos\Treinamento\Pract_NextJs13\StockStream\api\StockStream\StockStream\bin\Debug\netcoreapp3.1\StockStream.StaticWebAssets.xml
