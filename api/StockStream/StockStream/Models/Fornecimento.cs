@@ -18,6 +18,6 @@ namespace StockStream.Models
 
         public virtual Fornecedor Fornecedor { get; set; }
         public virtual Produto Produto { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Funcionario Usuario { get; set; }
     }
 }

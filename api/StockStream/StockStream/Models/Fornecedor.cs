@@ -24,7 +24,7 @@ namespace StockStream.Models
         public string DataCriacao { get; set; }
 
         public virtual CondicaoPagamento CondicaoPagamento { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Funcionario Usuario { get; set; }
         public virtual ICollection<Fornecimento> Fornecimento { get; set; }
     }
 }

@@ -97,10 +97,6 @@
       {
          "Name": "[dbo].[Unidade]",
          "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Usuario]",
-         "ObjectType": 0
       }
    ],
    "UiHint": "DESKTOP-VTU5LEG.Consumables",

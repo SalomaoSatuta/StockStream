@@ -38,7 +38,6 @@ namespace StockStream.Models
         public virtual DbSet<Relativo> Relativo { get; set; }
         public virtual DbSet<Solicitacao> Solicitacao { get; set; }
         public virtual DbSet<Unidade> Unidade { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,24 +57,24 @@ namespace StockStream.Models
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
                 entity.HasOne(d => d.Funcionario)
-                    .WithMany(p => p.Agregado)
+                    .WithMany(p => p.AgregadoFuncionario)
                     .HasForeignKey(d => d.FuncionarioId)
-                    .HasConstraintName("FK__Agregado__Funcio__70DDC3D8");
+                    .HasConstraintName("FK__Agregado__Funcio__6E01572D");
 
                 entity.HasOne(d => d.GrauParentesco)
                     .WithMany(p => p.Agregado)
                     .HasForeignKey(d => d.GrauParentescoId)
-                    .HasConstraintName("FK__Agregado__GrauPa__71D1E811");
+                    .HasConstraintName("FK__Agregado__GrauPa__6EF57B66");
 
                 entity.HasOne(d => d.Relativo)
                     .WithMany(p => p.Agregado)
                     .HasForeignKey(d => d.RelativoId)
-                    .HasConstraintName("FK__Agregado__Relati__6FE99F9F");
+                    .HasConstraintName("FK__Agregado__Relati__6D0D32F4");
 
                 entity.HasOne(d => d.Usuario)
-                    .WithMany(p => p.Agregado)
+                    .WithMany(p => p.AgregadoUsuario)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Agregado__Usuari__72C60C4A");
+                    .HasConstraintName("FK__Agregado__Usuari__6FE99F9F");
             });
 
             modelBuilder.Entity<Categoria>(entity =>
@@ -156,12 +155,12 @@ namespace StockStream.Models
                 entity.HasOne(d => d.CondicaoPagamento)
                     .WithMany(p => p.Fornecedor)
                     .HasForeignKey(d => d.CondicaoPagamentoId)
-                    .HasConstraintName("FK__Fornecedo__Condi__412EB0B6");
+                    .HasConstraintName("FK__Fornecedo__Condi__571DF1D5");
 
                 entity.HasOne(d => d.Usuario)
                     .WithMany(p => p.Fornecedor)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Fornecedo__Usuar__4222D4EF");
+                    .HasConstraintName("FK__Fornecedo__Usuar__5812160E");
             });
 
             modelBuilder.Entity<Fornecimento>(entity =>
@@ -184,17 +183,17 @@ namespace StockStream.Models
                 entity.HasOne(d => d.Fornecedor)
                     .WithMany(p => p.Fornecimento)
                     .HasForeignKey(d => d.FornecedorId)
-                    .HasConstraintName("FK__Fornecime__Forne__4E88ABD4");
+                    .HasConstraintName("FK__Fornecime__Forne__6477ECF3");
 
                 entity.HasOne(d => d.Produto)
                     .WithMany(p => p.Fornecimento)
                     .HasForeignKey(d => d.ProdutoId)
-                    .HasConstraintName("FK__Fornecime__Produ__4D94879B");
+                    .HasConstraintName("FK__Fornecime__Produ__6383C8BA");
 
                 entity.HasOne(d => d.Usuario)
                     .WithMany(p => p.Fornecimento)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Fornecime__Usuar__4F7CD00D");
+                    .HasConstraintName("FK__Fornecime__Usuar__656C112C");
             });
 
             modelBuilder.Entity<Funcao>(entity =>
@@ -273,6 +272,8 @@ namespace StockStream.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.PerfilId).HasColumnName("PerfilID");
+
                 entity.Property(e => e.Referencia)
                     .HasMaxLength(35)
                     .IsUnicode(false);
@@ -298,37 +299,42 @@ namespace StockStream.Models
                 entity.HasOne(d => d.EstadoCivil)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.EstadoCivilId)
-                    .HasConstraintName("FK__Funcionar__Estad__66603565");
+                    .HasConstraintName("FK__Funcionar__Estad__4CA06362");
 
                 entity.HasOne(d => d.EstadoLogin)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.EstadoLoginId)
-                    .HasConstraintName("FK__Funcionar__Estad__6A30C649");
+                    .HasConstraintName("FK__Funcionar__Estad__5070F446");
 
                 entity.HasOne(d => d.Genero)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.GeneroId)
-                    .HasConstraintName("FK__Funcionar__Gener__68487DD7");
+                    .HasConstraintName("FK__Funcionar__Gener__4E88ABD4");
 
                 entity.HasOne(d => d.GrauAcademico)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.GrauAcademicoId)
-                    .HasConstraintName("FK__Funcionar__GrauA__6754599E");
+                    .HasConstraintName("FK__Funcionar__GrauA__4D94879B");
 
                 entity.HasOne(d => d.Municipio)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.MunicipioId)
-                    .HasConstraintName("FK__Funcionar__Munic__656C112C");
+                    .HasConstraintName("FK__Funcionar__Munic__4BAC3F29");
 
                 entity.HasOne(d => d.Nacionalidade)
                     .WithMany(p => p.Funcionario)
                     .HasForeignKey(d => d.NacionalidadeId)
-                    .HasConstraintName("FK__Funcionar__Nacio__693CA210");
+                    .HasConstraintName("FK__Funcionar__Nacio__4F7CD00D");
+
+                entity.HasOne(d => d.Perfil)
+                    .WithMany(p => p.InversePerfil)
+                    .HasForeignKey(d => d.PerfilId)
+                    .HasConstraintName("FK__Funcionar__Perfi__52593CB8");
 
                 entity.HasOne(d => d.UsuarioNavigation)
-                    .WithMany(p => p.Funcionario)
+                    .WithMany(p => p.InverseUsuarioNavigation)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Funcionar__Usuar__6B24EA82");
+                    .HasConstraintName("FK__Funcionar__Usuar__5165187F");
             });
 
             modelBuilder.Entity<Genero>(entity =>
@@ -367,7 +373,7 @@ namespace StockStream.Models
                 entity.HasOne(d => d.Provincia)
                     .WithMany(p => p.Municipio)
                     .HasForeignKey(d => d.ProvinciaId)
-                    .HasConstraintName("FK__Municipio__Provi__5441852A");
+                    .HasConstraintName("FK__Municipio__Provi__3D5E1FD2");
             });
 
             modelBuilder.Entity<Nacionalidade>(entity =>
@@ -422,17 +428,17 @@ namespace StockStream.Models
                 entity.HasOne(d => d.Categoria)
                     .WithMany(p => p.Produto)
                     .HasForeignKey(d => d.CategoriaId)
-                    .HasConstraintName("FK__Produto__Categor__48CFD27E");
+                    .HasConstraintName("FK__Produto__Categor__5EBF139D");
 
                 entity.HasOne(d => d.Unidade)
                     .WithMany(p => p.Produto)
                     .HasForeignKey(d => d.UnidadeId)
-                    .HasConstraintName("FK__Produto__Unidade__49C3F6B7");
+                    .HasConstraintName("FK__Produto__Unidade__5FB337D6");
 
                 entity.HasOne(d => d.Usuario)
                     .WithMany(p => p.Produto)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Produto__Usuario__4AB81AF0");
+                    .HasConstraintName("FK__Produto__Usuario__60A75C0F");
             });
 
             modelBuilder.Entity<Provincia>(entity =>
@@ -469,7 +475,7 @@ namespace StockStream.Models
                 entity.HasOne(d => d.Usuario)
                     .WithMany(p => p.Relativo)
                     .HasForeignKey(d => d.UsuarioId)
-                    .HasConstraintName("FK__Relativo__Usuari__628FA481");
+                    .HasConstraintName("FK__Relativo__Usuari__68487DD7");
             });
 
             modelBuilder.Entity<Solicitacao>(entity =>
@@ -486,12 +492,12 @@ namespace StockStream.Models
                 entity.HasOne(d => d.Funcionario)
                     .WithMany(p => p.Solicitacao)
                     .HasForeignKey(d => d.FuncionarioId)
-                    .HasConstraintName("FK__Solicitac__Funci__75A278F5");
+                    .HasConstraintName("FK__Solicitac__Funci__72C60C4A");
 
                 entity.HasOne(d => d.Produto)
                     .WithMany(p => p.Solicitacao)
                     .HasForeignKey(d => d.ProdutoId)
-                    .HasConstraintName("FK__Solicitac__Produ__76969D2E");
+                    .HasConstraintName("FK__Solicitac__Produ__73BA3083");
             });
 
             modelBuilder.Entity<Unidade>(entity =>
@@ -500,42 +506,6 @@ namespace StockStream.Models
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Usuario>(entity =>
-            {
-                entity.Property(e => e.DataCriacao)
-                    .IsRequired()
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.EstadoLoginId).HasColumnName("EstadoLoginID");
-
-                entity.Property(e => e.Nome)
-                    .IsRequired()
-                    .HasMaxLength(32)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PerfilId).HasColumnName("PerfilID");
-
-                entity.Property(e => e.Senha)
-                    .IsRequired()
-                    .HasMaxLength(32)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Token)
-                    .HasMaxLength(16)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.EstadoLogin)
-                    .WithMany(p => p.Usuario)
-                    .HasForeignKey(d => d.EstadoLoginId)
-                    .HasConstraintName("FK__Usuario__EstadoL__3C69FB99");
-
-                entity.HasOne(d => d.Perfil)
-                    .WithMany(p => p.Usuario)
-                    .HasForeignKey(d => d.PerfilId)
-                    .HasConstraintName("FK__Usuario__PerfilI__3B75D760");
             });
 
             OnModelCreatingPartial(modelBuilder);

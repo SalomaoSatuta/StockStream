@@ -9,7 +9,14 @@ namespace StockStream.Models
     {
         public Funcionario()
         {
-            Agregado = new HashSet<Agregado>();
+            AgregadoFuncionario = new HashSet<Agregado>();
+            AgregadoUsuario = new HashSet<Agregado>();
+            Fornecedor = new HashSet<Fornecedor>();
+            Fornecimento = new HashSet<Fornecimento>();
+            InversePerfil = new HashSet<Funcionario>();
+            InverseUsuarioNavigation = new HashSet<Funcionario>();
+            Produto = new HashSet<Produto>();
+            Relativo = new HashSet<Relativo>();
             Solicitacao = new HashSet<Solicitacao>();
         }
 
@@ -38,6 +45,7 @@ namespace StockStream.Models
         public string Token { get; set; }
         public int? UsuarioId { get; set; }
         public string DataCriacao { get; set; }
+        public int? PerfilId { get; set; }
 
         public virtual EstadoCivil EstadoCivil { get; set; }
         public virtual EstadoLogin EstadoLogin { get; set; }
@@ -45,8 +53,16 @@ namespace StockStream.Models
         public virtual GrauAcademico GrauAcademico { get; set; }
         public virtual Municipio Municipio { get; set; }
         public virtual Nacionalidade Nacionalidade { get; set; }
-        public virtual Usuario UsuarioNavigation { get; set; }
-        public virtual ICollection<Agregado> Agregado { get; set; }
+        public virtual Funcionario Perfil { get; set; }
+        public virtual Funcionario UsuarioNavigation { get; set; }
+        public virtual ICollection<Agregado> AgregadoFuncionario { get; set; }
+        public virtual ICollection<Agregado> AgregadoUsuario { get; set; }
+        public virtual ICollection<Fornecedor> Fornecedor { get; set; }
+        public virtual ICollection<Fornecimento> Fornecimento { get; set; }
+        public virtual ICollection<Funcionario> InversePerfil { get; set; }
+        public virtual ICollection<Funcionario> InverseUsuarioNavigation { get; set; }
+        public virtual ICollection<Produto> Produto { get; set; }
+        public virtual ICollection<Relativo> Relativo { get; set; }
         public virtual ICollection<Solicitacao> Solicitacao { get; set; }
     }
 }

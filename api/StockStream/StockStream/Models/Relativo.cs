@@ -19,7 +19,7 @@ namespace StockStream.Models
         public int? UsuarioId { get; set; }
         public string DataCriacao { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
+        public virtual Funcionario Usuario { get; set; }
         public virtual ICollection<Agregado> Agregado { get; set; }
     }
 }

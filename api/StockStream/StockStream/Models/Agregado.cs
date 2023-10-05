@@ -17,6 +17,6 @@ namespace StockStream.Models
         public virtual Funcionario Funcionario { get; set; }
         public virtual GrauParentesco GrauParentesco { get; set; }
         public virtual Relativo Relativo { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Funcionario Usuario { get; set; }
     }
 }

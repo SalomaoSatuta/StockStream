@@ -22,154 +22,6 @@ create Table Perfil(
 
 insert into Perfil (Designacao) values ('Admin')
 
-create table Usuario(
-	Id int identity(1,1) primary key,
-	Nome varchar(32) not null,
-	Senha varchar(32) not null,
-	Token varchar(16),
-	DataCriacao varchar(20) not null,
-	PerfilID int foreign key references Perfil(Id),
-	EstadoLoginID int foreign key references EstadoLogin(Id)
-)
-
-create Table CondicaoPagamento(
-	Id int identity(1,1) primary key,
-	Designacao varchar(100) not null
-)
-
-insert into CondicaoPagamento (Designacao) values ('À vista')
-insert into CondicaoPagamento (Designacao) values ('Parcelamento')
-insert into CondicaoPagamento (Designacao) values ('À prazo')
-insert into CondicaoPagamento (Designacao) values ('Pagamento adiantado')
-insert into CondicaoPagamento (Designacao) values ('Pagamento contra entrega (COD - Cash on Delivery)')
-insert into CondicaoPagamento (Designacao) values ('Cartão de crédito')
-insert into CondicaoPagamento (Designacao) values ('Cartão de débito')
-insert into CondicaoPagamento (Designacao) values ('Cheque')
-insert into CondicaoPagamento (Designacao) values ('Transferência bancária')
-insert into CondicaoPagamento (Designacao) values ('Boleto bancário')
-insert into CondicaoPagamento (Designacao) values ('PayPal')
-insert into CondicaoPagamento (Designacao) values ('Pagamento recorrente')
-insert into CondicaoPagamento (Designacao) values ('Financiamento')
-insert into CondicaoPagamento (Designacao) values ('Desconto à vista')
-insert into CondicaoPagamento (Designacao) values ('Troca por outro produto ou serviço')
-insert into CondicaoPagamento (Designacao) values ('Pagamento em espécie')
-insert into CondicaoPagamento (Designacao) values ('Pagamento em ações')
-insert into CondicaoPagamento (Designacao) values ('Contrapartida')
-insert into CondicaoPagamento (Designacao) values ('Pagamento via aplicativo de pagamento')
-insert into CondicaoPagamento (Designacao) values ('Pagamento em criptomoedas')
-
-create table Fornecedor(
-	Id int identity(1,1) primary key,
-	Nome varchar(70),
-	Nif varchar(25),
-	Endereco varchar(100),
-	Contacto1 varchar(20),
-	Contacto2 varchar(20),
-	Email varchar(30),
-	CondicaoPagamentoID int foreign key references CondicaoPagamento(Id),
-	UsuarioID int foreign key references Usuario(Id),
-	DataCriacao varchar(20) not null
-)
-
-create Table Categoria(
-	Id int identity(1,1) primary key,
-	Designacao varchar(200) not null
-)
-
-insert into Categoria (Designacao) values ('Eletrônicos')
-insert into Categoria (Designacao) values ('Vestuário e Moda')
-insert into Categoria (Designacao) values ('Alimentos e Bebidas')
-insert into Categoria (Designacao) values ('Beleza e Cuidados Pessoais')
-insert into Categoria (Designacao) values ('Casa e Decoração')
-insert into Categoria (Designacao) values ('Saúde e Bem-Estar')
-insert into Categoria (Designacao) values ('Esportes e Fitness')
-insert into Categoria (Designacao) values ('Automotivo')
-insert into Categoria (Designacao) values ('Livros e Literatura')
-insert into Categoria (Designacao) values ('Brinquedos e Jogos')
-insert into Categoria (Designacao) values ('Móveis e Decoração de Interiores')
-insert into Categoria (Designacao) values ('Eletrônicos de Consumo')
-insert into Categoria (Designacao) values ('Joias e Acessórios')
-insert into Categoria (Designacao) values ('Ferramentas e Equipamentos')
-insert into Categoria (Designacao) values ('Produtos para Bebês e Crianças')
-insert into Categoria (Designacao) values ('Eletrônicos para Casa')
-insert into Categoria (Designacao) values ('Produtos para Animais de Estimação')
-insert into Categoria (Designacao) values ('Instrumentos Musicais')
-insert into Categoria (Designacao) values ('Produtos de Limpeza e Lavanderia')
-insert into Categoria (Designacao) values ('Equipamentos de Jardinagem')
-insert into Categoria (Designacao) values ('Produtos de Escritório e Papelaria')
-insert into Categoria (Designacao) values ('Produtos de Arte e Artesanato')
-insert into Categoria (Designacao) values ('Produtos de Cozinha e Culinária')
-insert into Categoria (Designacao) values ('Produtos de Viagem e Bagagem')
-insert into Categoria (Designacao) values ('Produtos de Tecnologia e Informática')
-insert into Categoria (Designacao) values ('Produtos de Entretenimento Doméstico')
-insert into Categoria (Designacao) values ('Produtos de Camping e Aventura')
-insert into Categoria (Designacao) values ('Produtos para Beleza Masculina')
-insert into Categoria (Designacao) values ('Produtos para Cabelo')
-insert into Categoria (Designacao) values ('Produtos de Limpeza Doméstica')
-insert into Categoria (Designacao) values ('Produtos de Fitness em Casa')
-insert into Categoria (Designacao) values ('Produtos de Realidade Virtual (VR)')
-insert into Categoria (Designacao) values ('Produtos de Áudio e Som')
-insert into Categoria (Designacao) values ('Produtos de Iluminação')
-insert into Categoria (Designacao) values ('Produtos de Segurança Doméstica')
-insert into Categoria (Designacao) values ('Produtos de Arte Corporal')
-insert into Categoria (Designacao) values ('Produtos de Higiene Oral')
-insert into Categoria (Designacao) values ('Produtos de Acessibilidade')
-insert into Categoria (Designacao) values ('Produtos de Aprendizado e Educação')
-insert into Categoria (Designacao) values ('Produtos de Lazer ao Ar Livre')
-
-
-create Table Unidade(
-	Id int identity(1,1) primary key,
-	Designacao varchar(100) not null
-)
-
-
-insert into Unidade (Designacao) values ('Peça')
-insert into Unidade (Designacao) values ('Par') 
-insert into Unidade (Designacao) values ('Metro ')
-insert into Unidade (Designacao) values ('Centímetro')
-insert into Unidade (Designacao) values ('Quilograma')
-insert into Unidade (Designacao) values ('Grama')
-insert into Unidade (Designacao) values ('Litro')
-insert into Unidade (Designacao) values ('Mililitro')
-insert into Unidade (Designacao) values ('Unidade de medida')
-insert into Unidade (Designacao) values ('Caixa')
-insert into Unidade (Designacao) values ('Pacote')
-insert into Unidade (Designacao) values ('Rolo')
-insert into Unidade (Designacao) values ('Galão')
-insert into Unidade (Designacao) values ('Onça')
-insert into Unidade (Designacao) values ('Libra')
-insert into Unidade (Designacao) values ('Tonelada')
-insert into Unidade (Designacao) values ('Dúzia')
-insert into Unidade (Designacao) values ('Metro cúbico')
-insert into Unidade (Designacao) values ('Pé cúbico')
-insert into Unidade (Designacao) values ('Litro por minuto')
-
-create table Produto(
-	Id int identity(1,1) primary key,
-	Nome varchar(70),
-	Descricao varchar(100),
-	QuantidadeStock int,
-	PrecoUnit float,
-	DataFabricacao varchar(20),
-	DataValidade varchar(20),
-	Localizacao varchar(50),
-	CategoriaID int foreign key references Categoria(Id),
-	UnidadeID int foreign key references Unidade(Id),
-	UsuarioID int foreign key references Usuario(Id),
-	DataCriacao varchar(20) not null
-)
-
-create table Fornecimento(
-	Id int identity(1,1) primary key,
-	QuantidadeFornecimento int,
-	ValoPago float,
-	DataFornecimento varchar(20),
-	ProdutoID int foreign key references Produto(Id),
-	FornecedorID int foreign key references Fornecedor(Id),
-	UsuarioID int foreign key references Usuario(Id),
-	DataCriacao varchar(20) not null
-)
 
 create table Provincia(
 	Id int identity(1,1) primary key,
@@ -460,16 +312,7 @@ VALUES
     ('Zâmbia'),
     ('Zimbábue');
 
-
-create table Relativo(
-	Id int identity(1,1) primary key,
-	NomeCompleto varchar(50) not null,
-	Identificacao varchar(30) not null,
-	DataNascimento varchar(20),
-	UsuarioID int foreign key references Usuario(Id),
-	DataCriacao varchar(20) not null
-)
-
+	
 
 create table Funcionario(
 	Id int identity(1,1) primary key,
@@ -495,7 +338,158 @@ create table Funcionario(
 	Usuario varchar(36),
 	Senha varchar(36),
 	Token varchar(16),
-	UsuarioID int foreign key references Usuario(Id),
+	UsuarioID int foreign key references Funcionario(Id),
+	DataCriacao varchar(20) not null,
+	Perfil int foreign key references Funcionario(Id),
+)
+
+create Table CondicaoPagamento(
+	Id int identity(1,1) primary key,
+	Designacao varchar(100) not null
+)
+
+insert into CondicaoPagamento (Designacao) values ('À vista')
+insert into CondicaoPagamento (Designacao) values ('Parcelamento')
+insert into CondicaoPagamento (Designacao) values ('À prazo')
+insert into CondicaoPagamento (Designacao) values ('Pagamento adiantado')
+insert into CondicaoPagamento (Designacao) values ('Pagamento contra entrega (COD - Cash on Delivery)')
+insert into CondicaoPagamento (Designacao) values ('Cartão de crédito')
+insert into CondicaoPagamento (Designacao) values ('Cartão de débito')
+insert into CondicaoPagamento (Designacao) values ('Cheque')
+insert into CondicaoPagamento (Designacao) values ('Transferência bancária')
+insert into CondicaoPagamento (Designacao) values ('Boleto bancário')
+insert into CondicaoPagamento (Designacao) values ('PayPal')
+insert into CondicaoPagamento (Designacao) values ('Pagamento recorrente')
+insert into CondicaoPagamento (Designacao) values ('Financiamento')
+insert into CondicaoPagamento (Designacao) values ('Desconto à vista')
+insert into CondicaoPagamento (Designacao) values ('Troca por outro produto ou serviço')
+insert into CondicaoPagamento (Designacao) values ('Pagamento em espécie')
+insert into CondicaoPagamento (Designacao) values ('Pagamento em ações')
+insert into CondicaoPagamento (Designacao) values ('Contrapartida')
+insert into CondicaoPagamento (Designacao) values ('Pagamento via aplicativo de pagamento')
+insert into CondicaoPagamento (Designacao) values ('Pagamento em criptomoedas')
+
+create table Fornecedor(
+	Id int identity(1,1) primary key,
+	Nome varchar(70),
+	Nif varchar(25),
+	Endereco varchar(100),
+	Contacto1 varchar(20),
+	Contacto2 varchar(20),
+	Email varchar(30),
+	CondicaoPagamentoID int foreign key references CondicaoPagamento(Id),
+	UsuarioID int foreign key references Funcionario(Id),
+	DataCriacao varchar(20) not null
+)
+
+create Table Categoria(
+	Id int identity(1,1) primary key,
+	Designacao varchar(200) not null
+)
+
+insert into Categoria (Designacao) values ('Eletrônicos')
+insert into Categoria (Designacao) values ('Vestuário e Moda')
+insert into Categoria (Designacao) values ('Alimentos e Bebidas')
+insert into Categoria (Designacao) values ('Beleza e Cuidados Pessoais')
+insert into Categoria (Designacao) values ('Casa e Decoração')
+insert into Categoria (Designacao) values ('Saúde e Bem-Estar')
+insert into Categoria (Designacao) values ('Esportes e Fitness')
+insert into Categoria (Designacao) values ('Automotivo')
+insert into Categoria (Designacao) values ('Livros e Literatura')
+insert into Categoria (Designacao) values ('Brinquedos e Jogos')
+insert into Categoria (Designacao) values ('Móveis e Decoração de Interiores')
+insert into Categoria (Designacao) values ('Eletrônicos de Consumo')
+insert into Categoria (Designacao) values ('Joias e Acessórios')
+insert into Categoria (Designacao) values ('Ferramentas e Equipamentos')
+insert into Categoria (Designacao) values ('Produtos para Bebês e Crianças')
+insert into Categoria (Designacao) values ('Eletrônicos para Casa')
+insert into Categoria (Designacao) values ('Produtos para Animais de Estimação')
+insert into Categoria (Designacao) values ('Instrumentos Musicais')
+insert into Categoria (Designacao) values ('Produtos de Limpeza e Lavanderia')
+insert into Categoria (Designacao) values ('Equipamentos de Jardinagem')
+insert into Categoria (Designacao) values ('Produtos de Escritório e Papelaria')
+insert into Categoria (Designacao) values ('Produtos de Arte e Artesanato')
+insert into Categoria (Designacao) values ('Produtos de Cozinha e Culinária')
+insert into Categoria (Designacao) values ('Produtos de Viagem e Bagagem')
+insert into Categoria (Designacao) values ('Produtos de Tecnologia e Informática')
+insert into Categoria (Designacao) values ('Produtos de Entretenimento Doméstico')
+insert into Categoria (Designacao) values ('Produtos de Camping e Aventura')
+insert into Categoria (Designacao) values ('Produtos para Beleza Masculina')
+insert into Categoria (Designacao) values ('Produtos para Cabelo')
+insert into Categoria (Designacao) values ('Produtos de Limpeza Doméstica')
+insert into Categoria (Designacao) values ('Produtos de Fitness em Casa')
+insert into Categoria (Designacao) values ('Produtos de Realidade Virtual (VR)')
+insert into Categoria (Designacao) values ('Produtos de Áudio e Som')
+insert into Categoria (Designacao) values ('Produtos de Iluminação')
+insert into Categoria (Designacao) values ('Produtos de Segurança Doméstica')
+insert into Categoria (Designacao) values ('Produtos de Arte Corporal')
+insert into Categoria (Designacao) values ('Produtos de Higiene Oral')
+insert into Categoria (Designacao) values ('Produtos de Acessibilidade')
+insert into Categoria (Designacao) values ('Produtos de Aprendizado e Educação')
+insert into Categoria (Designacao) values ('Produtos de Lazer ao Ar Livre')
+
+
+create Table Unidade(
+	Id int identity(1,1) primary key,
+	Designacao varchar(100) not null
+)
+
+
+insert into Unidade (Designacao) values ('Peça')
+insert into Unidade (Designacao) values ('Par') 
+insert into Unidade (Designacao) values ('Metro ')
+insert into Unidade (Designacao) values ('Centímetro')
+insert into Unidade (Designacao) values ('Quilograma')
+insert into Unidade (Designacao) values ('Grama')
+insert into Unidade (Designacao) values ('Litro')
+insert into Unidade (Designacao) values ('Mililitro')
+insert into Unidade (Designacao) values ('Unidade de medida')
+insert into Unidade (Designacao) values ('Caixa')
+insert into Unidade (Designacao) values ('Pacote')
+insert into Unidade (Designacao) values ('Rolo')
+insert into Unidade (Designacao) values ('Galão')
+insert into Unidade (Designacao) values ('Onça')
+insert into Unidade (Designacao) values ('Libra')
+insert into Unidade (Designacao) values ('Tonelada')
+insert into Unidade (Designacao) values ('Dúzia')
+insert into Unidade (Designacao) values ('Metro cúbico')
+insert into Unidade (Designacao) values ('Pé cúbico')
+insert into Unidade (Designacao) values ('Litro por minuto')
+
+create table Produto(
+	Id int identity(1,1) primary key,
+	Nome varchar(70),
+	Descricao varchar(100),
+	QuantidadeStock int,
+	PrecoUnit float,
+	DataFabricacao varchar(20),
+	DataValidade varchar(20),
+	Localizacao varchar(50),
+	CategoriaID int foreign key references Categoria(Id),
+	UnidadeID int foreign key references Unidade(Id),
+	UsuarioID int foreign key references Funcionario(Id),
+	DataCriacao varchar(20) not null
+)
+
+create table Fornecimento(
+	Id int identity(1,1) primary key,
+	QuantidadeFornecimento int,
+	ValoPago float,
+	DataFornecimento varchar(20),
+	ProdutoID int foreign key references Produto(Id),
+	FornecedorID int foreign key references Fornecedor(Id),
+	UsuarioID int foreign key references Funcionario(Id),
+	DataCriacao varchar(20) not null
+)
+
+
+
+create table Relativo(
+	Id int identity(1,1) primary key,
+	NomeCompleto varchar(50) not null,
+	Identificacao varchar(30) not null,
+	DataNascimento varchar(20),
+	UsuarioID int foreign key references Funcionario(Id),
 	DataCriacao varchar(20) not null
 )
 
@@ -546,7 +540,7 @@ create table Agregado(
 	RelativoID int foreign key references Relativo(Id),
 	FuncionarioID int foreign key references Funcionario(Id),
 	GrauParentescoID int foreign key references GrauParentesco(Id),
-	UsuarioID int foreign key references Usuario(Id),
+	UsuarioID int foreign key references Funcionario(Id),
 	DataCriacao varchar(20) not null
 )
 

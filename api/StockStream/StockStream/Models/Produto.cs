@@ -28,7 +28,7 @@ namespace StockStream.Models
 
         public virtual Categoria Categoria { get; set; }
         public virtual Unidade Unidade { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Funcionario Usuario { get; set; }
         public virtual ICollection<Fornecimento> Fornecimento { get; set; }
         public virtual ICollection<Solicitacao> Solicitacao { get; set; }
     }
