@@ -95,6 +95,13 @@ namespace StockStream.Controllers
             return result;
         }
 
+        //LOGIN
+        [HttpPost("login")]
+        public Funcionario Login([FromBody] Funcionario funcionario)
+        {
+            return Db.Funcionario.FirstOrDefault(e => e.Usuario == funcionario.Usuario && e.Senha == funcionario.Senha);
+        }
+
 
     }
 }
