@@ -41,7 +41,7 @@ export default function Login (){
 
             const data = await response.json();
 
-            router.push('/patrimonio/home');
+            router.push('/patrimonio/main');
 
             // if(data.perfilId == 1){
 

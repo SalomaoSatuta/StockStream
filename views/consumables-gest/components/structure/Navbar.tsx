@@ -1,9 +1,7 @@
 export default function Navbar(){
     return (
         <>
-
-           return (<><h1>Navbar</h1></>) 
-
+           <h1>Navbar</h1>
         </>
     )
 }
