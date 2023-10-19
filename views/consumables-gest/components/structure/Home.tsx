@@ -1,39 +1,48 @@
-import Navbar from "@/components/structure/Navbar"
-import Footer from "@/components/structure/Footer"
 import "bootstrap/dist/css/bootstrap.min.css";
-import Head from "next/head";
-
+import "@fortawesome/fontawesome-free";
+import Card from "../basic/Card";
+import CardMin from "../basic/CardMin";
 
 export default function Home(){
     
     return (
         <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
-         
-            
-
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-2" style={{backgroundColor:'silver',height:'100vh'}}>
-                        <div style={{backgroundColor:'red',height:'90vh'}}>
-                                asdasdas
-                        </div>
-                        <div style={{backgroundColor:'green',height:'10vh'}}>
-                                asdasdas
-                        </div>
-                    </div>
-                    <div className="col-md-10">
-                        <Navbar/>
-
-                        <Footer/>
-                    </div>
+        
+            <div className="row">
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#FDEDEC" />
+                </div>
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#EAF2F8" />
+                </div>
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#EAFAF1" />
+                </div>
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#EAF2F8" />
+                </div>
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#EAFAF1" />
+                </div>
+                <div className="col-md-4 pb-4">
+                    <Card titulo="Cavalo" background="#FDEDEC" />
                 </div>
             </div>
-                
 
-
+            <div className="row">
+                <div className="col-md-3">
+                    <CardMin />
+                </div>
+                <div className="col-md-3">
+                    <CardMin />
+                </div>
+                <div className="col-md-3">
+                    <CardMin />
+                </div>
+                <div className="col-md-3">
+                    <CardMin />
+                </div>
+            </div>
             
         </>
     )
