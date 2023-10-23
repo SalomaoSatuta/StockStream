@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChartBar, faUser, faMoon, faCalendar } from "@fortawesome/free-regular-svg-icons"
 
@@ -11,30 +10,31 @@ export default function Menu(){
                     <div className="row">
 
                         <div className="col-md-11 m-auto">
-{/* 
-                            <div>
-                                <Image
-                                src="/engine/images/logo/rendom-logo.png"
-                                width={100}
-                                height={100}
-                                alt="Logotipo"
-                                />
-                            </div> */}
 
-                            <ul>
-                                <li>Menu Principal</li>
-                                <li><FontAwesomeIcon icon={faChartBar} /> Dashboard</li>
-                                <li><FontAwesomeIcon icon={faUser} /> Usuários</li>
-                                <li><FontAwesomeIcon icon={faUser} />Minha Conta</li>
-                                <li> Estatística</li>
+                            <div className="text-center my-4">
+                                <img src="https://via.placeholder.com/100" />
+                            </div>
+
+                            <ul className="list-group myList">
+
+                                <li className="list-group-item mb-2">Menu Principal</li>
+
+                                <li className="list-group-item"><FontAwesomeIcon icon={faChartBar} /> Dashboard</li>
+                                <li className="list-group-item"><FontAwesomeIcon icon={faUser} /> Usuários</li>
+                                <li className="list-group-item"><FontAwesomeIcon icon={faUser} />Minha Conta</li>
+                                <li className="list-group-item">Estatística</li>
+
                             </ul>
 
-                            <ul>
-                                <li>Administrativo</li>
-                                <li>Fornecimentos</li>
-                                <li>Fornecedores</li>
-                                <li>Funcionário</li>
-                                <li>Solicitação</li>
+                            <ul className="list-group mt-3">
+
+                                <li className="list-group-item mb-2">Administrativo</li>
+
+                                <li className="list-group-item"><FontAwesomeIcon icon={faChartBar} /> Fornecimentos</li>
+                                <li className="list-group-item"><FontAwesomeIcon icon={faUser} /> Fornecedores</li>
+                                <li className="list-group-item"><FontAwesomeIcon icon={faUser} />Funcionário</li>
+                                <li className="list-group-item">Solicitação</li>
+
                             </ul>
 
                         </div>
