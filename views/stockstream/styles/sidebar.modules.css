@@ -1,0 +1,16 @@
+body{
+    font-family: 'Lexend', sans-serif;
+}
+
+.sidebar{
+    height:100vh;
+    background-color:#1d3557;
+    color: white!important;
+}
+
+.upside{
+    height: 90vh;
+}
+.downside{
+    height: 10vh;
+}
