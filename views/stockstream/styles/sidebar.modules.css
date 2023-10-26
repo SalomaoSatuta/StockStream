@@ -8,9 +8,15 @@ body{
     color: white!important;
 }
 
-.upside{
-    height: 90vh;
+/* .upside{
+    height: 700px;
+    overflow-y: scroll;
 }
 .downside{
-    height: 10vh;
+    height: 150px;
+} */
+
+
+.myList li{
+    list-style: none;
 }
