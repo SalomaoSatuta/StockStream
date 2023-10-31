@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Head from "next/head";
 import Navbar from "../../components/master/Navbar";
-import SideBar from "@/components/master/SideBar";
+import Container from "../../components/master/Container";
+import Footer from "@/components/master/Footer";
 
-export default function (){
+export default function Home(){
     return (
             <>
                 <Head>
@@ -15,15 +16,16 @@ export default function (){
 
                     <title>Home - Património</title>
                 </Head>
-                <div className="container-fluid">
+                <div className="container-fluid bg-light" style={{height:'100vh'}}>
+
                     <div className="row">
-                        <div className="col-md-2 px-0">
-                            <SideBar />
-                        </div>
-                        <div className="col-md-10">
+                        <div className="col-md-12 px-0">
                             <Navbar />
+                            <Container/>
+                            <Footer />
                         </div>
                     </div>
+                   
                 </div>
 
             </>

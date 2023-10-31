@@ -1,3 +1,3 @@
 export default function FornecedorAdd(){
-    return(<></>)
+    return(<><h1>asd</h1></>)
 }
